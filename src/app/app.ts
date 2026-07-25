@@ -40,7 +40,7 @@ export class App {
     githubHandle: 'Delaudes',
     githubUrl: 'https://github.com/Delaudes',
     bio: [
-      "Je suis un développeur passionné avec une forte appétence craft qui pense que la clé d'un logiciel efficace et durable réside dans une compréhension approfondie du domaine métier, ainsi que dans l'alignement du code avec cette compréhension.",
+      "Je suis un développeur passionné avec une forte appétence craft qui pense que la clé d'un logiciel efficace et durable réside dans une compréhension approfondie du domaine métier.",
       "J'aime donc travailler en collaboration étroite avec les experts métier pour élaborer des solutions logicielles qui répondent vraiment à leurs besoins.",
     ],
   };
