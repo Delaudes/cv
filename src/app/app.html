@@ -1,8 +1,32 @@
 <main class="mx-auto max-w-[880px] px-5 pt-16 pb-20 sm:px-8">
-  <header class="flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
-    <div class="flex items-center gap-5">
+  <header class="relative flex flex-wrap items-end justify-between gap-6 border-b border-line pb-8">
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 800 140"
+      class="pointer-events-none absolute inset-x-0 -top-6 -z-10 hidden h-32 w-full text-accent opacity-30 sm:block"
+    >
+      <circle cx="40" cy="30" r="1.4" fill="currentColor" fill-opacity="0.8" />
+      <circle cx="130" cy="78" r="1" fill="currentColor" fill-opacity="0.5" />
+      <circle cx="210" cy="18" r="1.2" fill="currentColor" fill-opacity="0.6" />
+      <circle cx="390" cy="100" r="1" fill="currentColor" fill-opacity="0.5" />
+      <circle cx="470" cy="14" r="1.3" fill="currentColor" fill-opacity="0.65" />
+      <polyline
+        points="600,62 638,24 682,70 722,28 762,54"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.4"
+      />
+      <circle cx="600" cy="62" r="1.6" fill="currentColor" />
+      <circle cx="638" cy="24" r="1.2" fill="currentColor" />
+      <circle cx="682" cy="70" r="1.8" fill="currentColor" />
+      <circle cx="722" cy="28" r="1.2" fill="currentColor" />
+      <circle cx="762" cy="54" r="1.4" fill="currentColor" />
+    </svg>
+
+    <div class="relative flex items-center gap-5">
       <span
-        class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-ink font-display text-[1.1rem] tracking-wide text-paper"
+        class="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-ink font-display text-[1.1rem] tracking-wide text-paper shadow-[0_0_20px_2px_rgba(216,166,87,0.25)]"
       >
         SD
       </span>
@@ -16,14 +40,10 @@
       </div>
     </div>
 
-    <ul class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-soft">
+    <ul class="relative flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-soft">
       <li class="flex items-center gap-1.5 whitespace-nowrap">
         <span class="material-symbols-outlined text-[1.05em] text-accent">location_on</span>
         {{ identity.location }}
-      </li>
-      <li class="flex items-center gap-1.5 whitespace-nowrap">
-        <span class="material-symbols-outlined text-[1.05em] text-accent">call</span>
-        {{ identity.phone }}
       </li>
       <li class="flex items-center gap-1.5 whitespace-nowrap">
         <a href="mailto:{{ identity.email }}" class="flex items-center gap-1.5 hover:text-accent">
@@ -34,6 +54,21 @@
       <li class="flex items-center gap-1.5 whitespace-nowrap">
         <span class="material-symbols-outlined text-[1.05em] text-accent">public</span>
         {{ identity.nationality }}
+      </li>
+      <li class="flex items-center gap-1.5 whitespace-nowrap">
+        <a
+          [href]="identity.githubUrl"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center gap-1.5 hover:text-accent"
+        >
+          <svg viewBox="0 0 25 24" fill="currentColor" class="h-[1.05em] w-[1.05em] text-accent">
+            <path
+              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
+            />
+          </svg>
+          {{ identity.githubHandle }}
+        </a>
       </li>
     </ul>
   </header>
@@ -53,12 +88,13 @@
 
       <ol class="mt-5 border-l border-line">
         @for (job of experiences; track job.role) {
-          <li class="relative py-0 pb-8 pl-6 last:pb-0 before:absolute before:-left-[4px] before:top-[6px] before:h-[7px] before:w-[7px] before:rounded-full before:bg-accent before:content-['']">
+          <li class="relative py-0 pb-8 pl-6 last:pb-0 before:absolute before:-left-1 before:top-1.5 before:h-1.75 before:w-1.75 before:rounded-full before:bg-accent before:content-['']">
             <span class="mb-1 block text-xs font-semibold uppercase tracking-wider text-accent">
               {{ job.period }}
             </span>
-            <h3 class="mb-2.5 font-display text-[1.05rem] font-medium">{{ job.role }}</h3>
-            <ul class="list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-ink-soft">
+            <h3 class="font-display text-[1.05rem] font-medium">{{ job.role }}</h3>
+            <p class="mb-2.5 text-sm text-ink-soft">{{ job.company }}</p>
+            <ul class="marker:text-accent list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-ink-soft">
               @for (mission of job.missions; track mission) {
                 <li>{{ mission }}</li>
               }
@@ -74,12 +110,12 @@
 
       <ol class="mt-5 border-l border-line">
         @for (entry of education; track entry.title) {
-          <li class="relative py-0 pb-8 pl-6 last:pb-0 before:absolute before:-left-[4px] before:top-[6px] before:h-[7px] before:w-[7px] before:rounded-full before:bg-accent before:content-['']">
+          <li class="relative py-0 pb-8 pl-6 last:pb-0 before:absolute before:-left-1 before:top-1.5 before:h-1.75 before:w-1.75 before:rounded-full before:bg-accent before:content-['']">
             <span class="mb-1 block text-xs font-semibold uppercase tracking-wider text-accent">
               {{ entry.period }}
             </span>
             <h3 class="mb-2.5 font-display text-[1.05rem] font-medium">{{ entry.title }}</h3>
-            <ul class="list-disc columns-1 gap-x-6 pl-4 text-sm leading-relaxed text-ink-soft sm:columns-2">
+            <ul class="marker:text-accent list-disc columns-1 gap-x-6 pl-4 text-sm leading-relaxed text-ink-soft sm:columns-2">
               @for (detail of entry.details; track detail) {
                 <li class="mb-1.5 break-inside-avoid">{{ detail }}</li>
               }
@@ -97,8 +133,36 @@
         </h2>
         <ul class="mt-5 flex flex-col gap-2.5">
           @for (skill of skills; track skill) {
-            <li class="relative pl-4 text-sm text-ink-soft before:absolute before:left-0 before:top-[0.5em] before:h-[5px] before:w-[5px] before:bg-accent before:content-['']">
+            <li class="relative pl-4 text-sm text-ink-soft before:absolute before:left-0 before:top-[0.5em] before:h-1.25 before:w-1.25 before:rounded-full before:bg-accent before:content-['']">
               {{ skill }}
+            </li>
+          }
+        </ul>
+      </section>
+
+      <section class="mt-10">
+        <h2 class="flex items-center gap-2 font-display text-[1.15rem] font-medium tracking-tight">
+          <span class="material-symbols-outlined text-[1.15rem] text-accent">workspace_premium</span>
+          Certifications
+        </h2>
+        <ul class="mt-5 flex flex-col gap-2.5">
+          @for (cert of certifications; track cert.title) {
+            <li class="relative pl-4 text-sm text-ink-soft before:absolute before:left-0 before:top-[0.5em] before:h-1.25 before:w-1.25 before:rounded-full before:bg-accent before:content-['']">
+              <span class="font-medium text-ink">{{ cert.title }}</span> par {{ cert.issuer }}
+            </li>
+          }
+        </ul>
+      </section>
+
+      <section class="mt-10">
+        <h2 class="flex items-center gap-2 font-display text-[1.15rem] font-medium tracking-tight">
+          <span class="material-symbols-outlined text-[1.15rem] text-accent">auto_stories</span>
+          Lectures techniques
+        </h2>
+        <ul class="mt-5 flex flex-col gap-2.5">
+          @for (book of readings; track book) {
+            <li class="relative pl-4 text-sm text-ink-soft before:absolute before:left-0 before:top-[0.5em] before:h-1.25 before:w-1.25 before:rounded-full before:bg-accent before:content-['']">
+              {{ book }}
             </li>
           }
         </ul>

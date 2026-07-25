@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 interface Experience {
   period: string;
   role: string;
+  company: string;
   missions: string[];
 }
 
@@ -19,6 +20,11 @@ interface Activity {
   detail: string;
 }
 
+interface Certification {
+  title: string;
+  issuer: string;
+}
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -27,13 +33,14 @@ interface Activity {
 export class App {
   protected readonly identity = {
     name: 'Sofiane Delaude',
-    role: 'Développeur Back-end & Front-end',
+    role: 'Développeur Fullstack',
     location: 'Annecy',
     nationality: 'Belge',
-    phone: '06 24 06 85 12',
     email: 'delaude.so@gmail.com',
+    githubHandle: 'Delaudes',
+    githubUrl: 'https://github.com/Delaudes',
     bio: [
-      "Je suis un développeur passionné qui pense que la clé d'un logiciel efficace et durable réside dans une compréhension approfondie du domaine métier, ainsi que dans l'alignement du code avec cette compréhension.",
+      "Je suis un développeur passionné avec une forte appétence craft qui pense que la clé d'un logiciel efficace et durable réside dans une compréhension approfondie du domaine métier, ainsi que dans l'alignement du code avec cette compréhension.",
       "J'aime donc travailler en collaboration étroite avec les experts métier pour élaborer des solutions logicielles qui répondent vraiment à leurs besoins.",
     ],
   };
@@ -42,23 +49,25 @@ export class App {
     {
       period: 'Nov. 2023 — en cours',
       role: 'Développeur Front-end',
+      company: 'Crédit Agricole Technologies & Services',
       missions: [
-        "Maintenance, évolution et intégration d'un parcours web de gestion des prélèvements dans l'application mobile",
-        "Développement et déploiement d'un parcours web de gestion des bénéficiaires unitaires",
-        "Conception et développement d'une partie du dashboard de visualisation des environnements de développement",
-        "Conception, développement et déploiement d'un parcours web de suivi et gestion des virements",
-        "Conception, développement et déploiement d'un nouveau parcours web de gestion des prélèvements",
+        "Gestion des mandats et des prélèvements",
+        "Gestion des bénéficiaires unitaires",
+        "Parcours d'exécution de virements clients",
+        "Suivi et gestion des virements clients",
+        "Visualisation de l'état des environnements de développement",
       ],
     },
     {
       period: 'Juin 2020 — Nov. 2023',
       role: 'Développeur Back-end',
+      company: 'Crédit Agricole Technologies & Services',
       missions: [
-        'Maintenance et évolutions des APIs liées à la réglementation DSP2',
-        "Développement et déploiement d'une API sur les référentiels bancaires",
-        "Développement et déploiement d'une API sur la gestion du risque",
-        "Conception, développement et déploiement d'une fonctionnalité de mise en crédits différés de chèques (BDD + DAO + API)",
-        "Conception, développement et déploiement de deux fonctionnalités de saisie et de suivi des contestations de paiement par carte (BDD + DAO + API + BPMN)",
+        "Réglementation DSP2 (agrégation de comptes, initiation de paiements)",
+        "Référentiels bancaires (IBAN, BIC, etc.)",
+        "Détection des risques clients",
+        "Mise en crédits différés de chèques",
+        "Saisie et suivi des contestations de paiement par carte",
       ],
     },
   ];
@@ -79,19 +88,29 @@ export class App {
   ];
 
   protected readonly skills: string[] = [
-    'Java · TypeScript',
-    'Test Driven Development',
-    'Architecture hexagonale',
+    'Spring Boot · Angular',
+    'POO · Tell Don\'t Ask · Loi de Déméter',
+    'Clean/Hexagonal Architecture',
     'SOLID · KISS · YAGNI · DRY',
     'Curiosité · Adaptation · Rigueur',
+  ];
+
+  protected readonly readings: string[] = [
+    'Software Craft',
+    'Clean Code',
+    'Clean Architecture',
+    'Head First Design Patterns',
+  ];
+
+  protected readonly certifications: Certification[] = [
+    { title: 'TDD & Clean Architecture dans le monde Web avec Angular', issuer: 'Michaël Azerhad, WealCome' },
   ];
 
   protected readonly activities: Activity[] = [
     { icon: 'sports_volleyball', label: 'Sports', detail: 'Volley-ball, ski' },
     { icon: 'science', label: 'Sciences', detail: 'Cosmologie, mathématiques…' },
-    { icon: 'menu_book', label: 'Lecture', detail: 'Polars, informatique, philosophie…' },
-    { icon: 'flight_takeoff', label: 'Voyages', detail: 'Japon, Grèce, Portugal, Italie…' },
-    { icon: 'movie', label: 'Cinéma', detail: 'Films, séries, animés' },
-    { icon: 'restaurant', label: 'Manger et boire', detail: 'Surtout quand c’est bon' },
+    { icon: 'menu_book', label: 'Lecture', detail: 'Thriller, SF, philosophie…' },
+    { icon: 'flight_takeoff', label: 'Voyages', detail: 'Japon, Grèce, Portugal, Autriche…' },
+    { icon: 'restaurant', label: 'Gastronomie', detail: 'Cuisiner, bonnes tables' },
   ];
 }

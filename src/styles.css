@@ -6,16 +6,27 @@
   --font-display: 'Fraunces', ui-serif, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  --color-ink: #201d1a;
-  --color-ink-soft: #5a5450;
-  --color-paper: #faf7f2;
-  --color-line: #e5ded4;
-  --color-accent: #b5502f;
-  --color-accent-soft: #b5502f14;
+  /* night sky palette: --color-ink/paper are inverted from a typical light theme */
+  --color-ink: #ede9e2;
+  --color-ink-soft: #aca7bb;
+  --color-paper: #12141c;
+  --color-line: #262a3a;
+  --color-accent: #d8a657;
+  --color-accent-soft: #d8a65720;
 }
 
 body {
-  background: var(--color-paper);
+  background-color: var(--color-paper);
+  background-image:
+    radial-gradient(1px 1px at 20px 30px, rgba(237, 233, 226, 0.45), transparent 60%),
+    radial-gradient(1px 1px at 120px 90px, rgba(237, 233, 226, 0.3), transparent 60%),
+    radial-gradient(1.5px 1.5px at 200px 150px, rgba(237, 233, 226, 0.4), transparent 60%),
+    radial-gradient(1px 1px at 60px 190px, rgba(237, 233, 226, 0.25), transparent 60%),
+    radial-gradient(1px 1px at 260px 40px, rgba(237, 233, 226, 0.3), transparent 60%),
+    radial-gradient(1.5px 1.5px at 320px 220px, rgba(237, 233, 226, 0.25), transparent 60%),
+    radial-gradient(1px 1px at 300px 110px, rgba(237, 233, 226, 0.2), transparent 60%);
+  background-repeat: repeat;
+  background-size: 340px 260px;
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
