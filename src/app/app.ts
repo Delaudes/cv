@@ -47,14 +47,22 @@ export class App {
 
   protected readonly experiences: Experience[] = [
     {
-      period: 'Nov. 2023 — en cours',
+      period: 'Août 2026 — en cours',
+      role: 'Développeur Mobile',
+      company: 'Crédit Agricole Technologies & Services',
+      missions: [
+        "Parcours selfcare d'exécution de virements",
+      ],
+    },
+    {
+      period: 'Nov. 2023 — Juillet 2026',
       role: 'Développeur Front-end',
       company: 'Crédit Agricole Technologies & Services',
       missions: [
         "Gestion des mandats et des prélèvements",
         "Gestion des bénéficiaires unitaires",
-        "Parcours d'exécution de virements clients",
-        "Suivi et gestion des virements clients",
+        "Parcours d'exécution de virements pour les clients",
+        "Suivi et gestion des virements des clients",
         "Visualisation de l'état des environnements de développement",
       ],
     },
@@ -88,7 +96,7 @@ export class App {
   ];
 
   protected readonly skills: string[] = [
-    'Spring Boot · Angular',
+    'Spring Boot · Angular · KMP',
     'POO · Tell Don\'t Ask · Loi de Déméter',
     'Clean/Hexagonal Architecture',
     'SOLID · KISS · YAGNI · DRY',
